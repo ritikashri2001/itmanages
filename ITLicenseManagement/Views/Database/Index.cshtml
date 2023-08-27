@@ -1,0 +1,226 @@
+﻿@model IEnumerable<LicenseIT>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="ind2">
+    <div class="text-center">
+        <div>
+
+            <h2>List Of Licences </h2>
+
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+        <div class="form-horizontal">
+            <div class="from-group">
+                
+                <div class="col-mb-8">
+                    <input  type="text" name="name" placeholder="Search Here" id="txtsearch"class="form-control m-1 float-start" style="max-width:100%"/>
+                    @*<button class="btn btn-primary " type="submit">Search</button>*@
+                </div>
+               
+                </div>
+                </div>
+        <div>
+            <div class="coloum-6 text-end">
+
+                <a class=" btn btn-primary" asp-action="AddLicense" asp-controller="Database"><i class="bi bi-plus-circle"></i> &nbsp; Sell Product </a>
+               </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <table class="table table-bordered table-striped table-d">
+        <thead class="text-center index">
+            <tr>
+                <th>
+                    Portal
+                </th>
+                <th>
+                    Order Load Term
+                </th>
+                <th>
+                    Re-Seller
+                </th>
+                <th>
+                    SellerEmail
+                </th>
+                <th>
+                    Customer Name
+                </th>
+                <th>
+                    Contact Number
+                </th>
+                <th>
+                    Email ID
+                </th>
+                <th>
+                    Microsoft Tenent/Adove VIP
+                </th>
+                <th>
+                    Password
+                </th>
+                <th>
+                    Domain
+                </th>
+                <th>
+                    Licence Term
+                </th>
+                <th>
+                    Order Type
+                </th>
+                <th>
+                    Product's Name
+                </th>
+                <th>
+                    Billing
+                </th>
+                <th>
+                    Service Start DateTime
+                </th>
+                <th>
+                    Service End DateTime
+                </th>
+                <th>
+                    Payment Term
+                </th>
+                <th>
+                    Rate Commitment
+                </th>
+                <th>
+                    Rate Per day
+                </th>
+                <th>
+                    Number Of Days
+                </th>
+                <th>
+                    Prorate For Billing
+
+                </th>
+                <th>
+                    Units
+                </th>
+                <th>
+                    Ammount
+                </th>
+                <th>
+                    GST Ammount
+                </th>
+                <th>
+                    Billing Ammount With GST
+                </th>
+                <th>
+                    Tax Invoice No.
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Portal
+                    </td>
+                    <td>
+                        @item.OrderLoadTerm
+                    </td>
+                    <td>
+                        @item.ReSeller
+                    </td>
+                    <td>
+                        @item.SallerEmail
+                    </td>
+                    <td>
+                        @item.CustomerName
+                    </td>
+                    <td>
+                        @item.ContactNo
+                    </td>
+                    <td>
+                        @item.EmailID
+                    </td>
+                    <td>
+                        @item.MicrosoftTenendAdoveVIP
+                    </td>
+                    <td>
+                        @item.Password
+                    </td>
+                    <td>
+                        @item.Domain
+                    </td>
+                    <td>
+                        @item.LicenceTerm
+                    </td>
+                    <td>
+                        @item.OrderType
+                    </td>
+                    <td>
+                        @item.ProductName
+                    </td>
+                    <td>
+                        @item.Billing
+                    </td>
+                    <td>
+                        @item.StartDateTime
+                    </td>
+                    <td>
+                        @item.EndDateTime
+                    </td>
+                    <td>
+                        @item.PaymentTerm
+                    </td>
+                    <td>
+                        @item.RateCommitment
+                    </td>
+                    <td>
+                        @item.RatePerday 
+
+                    </td>
+                    <td>
+                        @item.NumberOfDays
+                    </td>
+                    <td>
+                        @item.ProrateForBilling
+
+                    </td>
+                    <td>
+                        @item.Units
+                    </td>
+                    <td>
+                        @item.Ammount
+                    </td>
+                    <td>
+                        @item.GSTAmmount
+                    </td>
+
+                    <td>
+                        @item.BillingAmmountWithGST
+                    </td>
+                    <td>
+                        @item.TaxInvoiceNumber
+                    </td>
+                    <td>
+                        @item.Date
+                    </td>
+
+
+                    <td role="group">
+                        <a asp-action="AddNew" asp-controller="Database" asp-route-domain="@item.Domain">
+                            Add-On
+                        </a>
+                    </td>
+                  
+
+                </tr>
+            }
+        </tbody>
+        </table>
+        </div>
+@section scripts{
+    <script src="~/js/seach.js"></script>
+}

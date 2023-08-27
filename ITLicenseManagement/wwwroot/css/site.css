@@ -1,0 +1,47 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.table-d {
+    display: block;
+    max-width: fit-content;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
+    border: 2px solid grey;
+}
+.t1 {
+    width:30%;
+    
+}
+.t2 {
+    width: 30%;
+}
+.f1{
+    background:lightblue;
+    border:2px solid grey;
+}
+.back{
+    margin:15px;
+}
+.ind{
+    background:lightblue;
+    height:100%;
+}
+.addnew{
+    margin:auto;
+}

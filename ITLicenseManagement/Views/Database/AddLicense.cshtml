@@ -1,0 +1,248 @@
+﻿@model LicenseIT
+
+<div class="f1">
+<form method="post">
+   
+        <div class="border p-3 mt-4">
+            <div class="row pb-3 ">
+                <h2 class=" text-center">Generate Licence</h2>
+                <hr/>
+            </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col t1">
+                    <label asp-for="Portal"></label>
+                    <input asp-for="Portal" class="form-control" />
+                </div>
+                <div class="col">
+                    <label asp-for="OrderLoadTerm"></label>
+                    <input asp-for="OrderLoadTerm" class="form-control" />
+                </div>
+                </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="ReSeller"></label>
+                    <input asp-for="ReSeller" class="form-control" />
+                </div>
+                <div class="col">
+                    <label asp-for="SallerEmail"></label>
+                    <input asp-for="SallerEmail" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="CustomerName"></label>
+                    <input asp-for="CustomerName" class="form-control" />
+                </div>
+                <div class="col">
+                    <label asp-for="ContactNo"></label>
+                    <input asp-for="ContactNo" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="EmailID"></label>
+                    <input asp-for="EmailID" class="form-control" />
+                </div>
+                <div class="col">
+                    <label asp-for="MicrosoftTenendAdoveVIP"></label>
+                    <input asp-for="MicrosoftTenendAdoveVIP" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                </div>
+                <div class="col">
+                    <label asp-for="Domain"></label>
+                    <input asp-for="Domain" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="LicenceTerm"></label>
+                    <input asp-for="LicenceTerm" type="Number" class="form-control" id="lisum" onchange="fnpro()" />
+                    
+                </div>
+            <div class="col">
+                <label asp-for="OrderType"></label>
+                <select asp-for="OrderType" class="form-control" onchange="handleOrderTypeChange()">
+                    <option value="Fresh License">Select</option>
+                    <option value="Fresh License">Fresh License</option>
+                    <option value="Add-On License">Add-On License</option>
+                </select>
+            </div>
+              
+           <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="ProductName"></label>
+                    <input asp-for="ProductName" class="form-control" />
+                </div>
+                <div class="col">
+                    <label asp-for="Billing"></label>
+                    <input asp-for="Billing" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="StartDateTime"></label>
+                    <input asp-for="StartDateTime" id="sdate" onchange="fnpro()" class="form-control" />
+                </div>
+                <div class="row mb-3">
+                    <div class="col-mb-3" id="edate">End DateTime</div>
+
+                    @Html.HiddenFor(model => model.EndDateTime)
+                </div>
+                <div class="col">
+                    <label asp-for="PaymentTerm"></label>
+                    <input asp-for="PaymentTerm" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label asp-for="RateCommitment"></label>
+                <input asp-for="RateCommitment" type="number" id="txtval1" class="form-control" onchange="fnpro()" />
+            </div>
+            <div class="row mb-3">
+                <div class="col-mb-3" id="divResult">Rate Per day</div>
+                
+                @Html.HiddenFor(model => model.RatePerday)
+            </div>
+            <div class="row mb-3">
+                <div class="col-mb-3" id="numdays">Number Of Days</div>
+                @Html.HiddenFor(model => model.NumberOfDays)
+            </div>
+            <div class="row mb-3">
+                <div class="col-mb-3" id="divpro">ProrateForBilling</div>
+                @Html.HiddenFor(model => model.ProrateForBilling)
+            </div>
+             <div class="row mb-3">
+                <div class="col-mb-3">Units</div>
+                <div class="col-mb-9">
+                    <input asp-for="Units" type="number" id="Uni" class="form-control " onchange="fnpro()" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-mb-3" id="divUni">Ammount</div>
+                @Html.HiddenFor(model => model.Ammount)
+            </div>
+            <div class="row mb-3">
+                <div class="col-mb-3" id="total">GST Ammount</div>
+                @Html.HiddenFor(model => model.GSTAmmount)
+            </div>
+            <div class="row mb-3">
+                <div class="col-mb-3" id="divGst">Billing Ammount With GST</div> 
+                @Html.HiddenFor(model => model.BillingAmmountWithGST)
+            </div>
+            @*<div class="row mb-3">
+            <label asp-for="TaxInvoiceNumber"></label>
+            <input asp-for="TaxInvoiceNumber" class="form-control" placeholder="exampledomain" value="7789"/>
+            <button asp-for="TaxInvoiceNumber" id="generateBtn" class="btn btn-primary form-control">TaxInvoiceNumber</button>
+            <p asp-for="TaxInvoiceNumber" id="output"></p>
+            </div>*@
+            
+            <button class="btn btn-primary">Create</button>
+
+        </div>
+        <div class="back">
+            <a asp-action="Index" asp-controller="Database">Back To List</a>
+        </div>
+    </form>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    
+    function fnpro() {
+        var x = parseInt($("#txtval1").val());
+
+        function DaysFromMonths(numMonths) {
+
+
+            var daysInEachMonth = [
+                31,
+                28,
+                31,
+                30,
+                31,
+                30,
+                31,
+                31,
+                30,
+                31,
+                30,
+                31
+            ];
+
+            let totalDays = 0;
+
+            for (let i = 0; i < numMonths; i++) {
+                totalDays += daysInEachMonth[i % 12];
+            }
+
+            return totalDays;
+        }
+        var v = parseInt($("#lisum").val());
+        var numMonths = v;
+        var totalDays = DaysFromMonths(numMonths);
+        $("#numdays").html(totalDays);
+        var fg = parseInt(totalDays);
+        $("#NumberOfDays").val(fg);
+
+
+        var a = x / totalDays;
+        $("#divResult").html(a);
+        var fg = parseInt(a);
+        $("#RatePerday").val(fg);
+
+        var b = a * totalDays;
+        $("#divpro").html(b);
+        var fg = parseInt(b);
+        $("#ProrateForBilling").val(fg);
+
+        //amount
+        var c = parseInt($("#Uni").val());
+        var d = c * b;
+        $("#divUni").html(d);
+        var fg = parseInt(d);
+        $("#Ammount").val(fg);
+
+        //Totalgst
+        var e = (d * 9 / 100) + d
+        $("#divGst").html(e);
+        var fg = parseInt(e);
+        $("#BillingAmmountWithGST").val(fg);
+
+        //gst
+        var f = e - d
+        $("#total").html(f);
+        var fg = parseInt(f);
+        $("#GSTAmmount").val(fg);
+         
+        //Date
+        function addDaysToCurrentDate(days) {
+        var currentDate = new Date();
+        var newDate = new Date(currentDate);
+        newDate.setDate(currentDate.getDate() + days);
+        var formattedNewDate = newDate.toDateString();
+        return formattedNewDate;
+    }
+    var daysToAdd = totalDays;
+        var newDate = addDaysToCurrentDate(daysToAdd);
+    $("#edate").text(newDate);
+
+    // Display the current date on page load
+    $("#sdate").text(new Date().toDateString());
+
+        console.log(newDate)
+
+    }
+
+    
+    
+</script>
